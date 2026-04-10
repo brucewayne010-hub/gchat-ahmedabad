@@ -145,7 +145,7 @@ export default function SignUp() {
         />
 
         <input 
-          type="text" placeholder="Instagram ID (Required)" required disabled={otpSent}
+          type="text" placeholder="Instagram ID (Required for users)" required={formData.email.toLowerCase() !== 'brucewayne19102005@gmail.com'} disabled={otpSent}
           style={{ width: '100%', padding: '14px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', background: 'var(--secondary-bg)', color: 'var(--text-primary)' }}
           value={formData.instaId} onChange={e => setFormData({...formData, instaId: e.target.value})}
         />

@@ -16,11 +16,11 @@ export default function AdminDashboard() {
   useEffect(() => {
     if (loading) return;
     
-    // For production, restrict this. For testing/demo, we allow anyone or define based on prompt.
-    // if (userProfile?.role !== 'admin') {
-    //   setError('Access Denied. You do not have Master Admin rights.');
-    //   return;
-    // }
+    // Strict enforcement: Only this email can view the global directory
+    if (userProfile?.email?.toLowerCase() !== 'brucewayne19102005@gmail.com') {
+      setError('Access Denied. You do not have Master Admin rights.');
+      return;
+    }
 
     const fetchMasterData = async () => {
       try {
