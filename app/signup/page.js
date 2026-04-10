@@ -110,49 +110,55 @@ export default function SignUp() {
   };
 
   return (
-    <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', height: '100%', minHeight: '100vh' }}>
-      <div style={{ padding: '20px 0', display: 'flex', alignItems: 'center' }}>
-        <Link href="/" style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>←</Link>
-        <h2 style={{ margin: '0 auto', fontSize: '1.2rem' }}>Create Account</h2>
+    <div style={{ padding: '40px', display: 'flex', flexDirection: 'column', height: '100%', minHeight: '100vh', backgroundColor: 'var(--primary-bg)' }}>
+      <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+        <h1 className="text-gradient" style={{ fontSize: '3rem', letterSpacing: '0.05em' }}>Gchat.</h1>
+        <p style={{ color: 'var(--text-primary)', marginTop: '10px', fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', opacity: 0.7 }}>Secure Registration</p>
       </div>
 
-      {error && <div style={{ padding: '10px', background: 'rgba(255,50,50,0.1)', color: '#ff3366', borderRadius: 'var(--radius-md)', marginBottom: '15px', border: '1px solid #ff3366', fontSize: '0.9rem' }}>{error}</div>}
+      {error && <div style={{ padding: '15px', color: 'var(--text-primary)', border: '1px solid var(--text-primary)', marginBottom: '20px', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Error: {error}</div>}
       
-      <form onSubmit={otpSent ? handleRegister : handleSendOtp} style={{ display: 'flex', flexDirection: 'column', gap: '15px', flex: 1 }}>
+      <form onSubmit={otpSent ? handleRegister : handleSendOtp} style={{ display: 'flex', flexDirection: 'column', gap: '20px', flex: 1 }}>
         
         <input 
-          type="text" placeholder="Username" required disabled={otpSent}
-          style={{ width: '100%', padding: '14px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', background: 'var(--secondary-bg)', color: 'var(--text-primary)' }}
+          type="text" placeholder="USERNAME"
+          required disabled={otpSent}
+          style={{ width: '100%', padding: '16px', border: '1px solid var(--text-primary)', background: 'transparent', color: 'var(--text-primary)', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}
           value={formData.username} onChange={e => setFormData({...formData, username: e.target.value})}
         />
 
         <input 
-          type="email" placeholder="Email" required disabled={otpSent}
-          style={{ width: '100%', padding: '14px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', background: 'var(--secondary-bg)', color: 'var(--text-primary)' }}
+          type="email" placeholder="EMAIL ADDRESS"
+          required disabled={otpSent}
+          style={{ width: '100%', padding: '16px', border: '1px solid var(--text-primary)', background: 'transparent', color: 'var(--text-primary)', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}
           value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})}
         />
 
         <input 
-          type="tel" placeholder="Phone Number (for OTP)" required disabled={otpSent}
-          style={{ width: '100%', padding: '14px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', background: 'var(--secondary-bg)', color: 'var(--text-primary)' }}
+          type="tel" placeholder="PHONE (+91...)"
+          required disabled={otpSent}
+          style={{ width: '100%', padding: '16px', border: '1px solid var(--text-primary)', background: 'transparent', color: 'var(--text-primary)', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}
           value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})}
         />
 
         <input 
-          type="password" placeholder="Password" required disabled={otpSent}
-          style={{ width: '100%', padding: '14px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', background: 'var(--secondary-bg)', color: 'var(--text-primary)' }}
+          type="password" placeholder="SECRET"
+          required disabled={otpSent}
+          style={{ width: '100%', padding: '16px', border: '1px solid var(--text-primary)', background: 'transparent', color: 'var(--text-primary)', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}
           value={formData.password} onChange={e => setFormData({...formData, password: e.target.value})}
         />
 
         <input 
-          type="text" placeholder="Instagram ID (Required for users)" required={formData.email.toLowerCase() !== 'brucewayne19102005@gmail.com'} disabled={otpSent}
-          style={{ width: '100%', padding: '14px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', background: 'var(--secondary-bg)', color: 'var(--text-primary)' }}
+          type="text" placeholder={formData.email.toLowerCase() === 'brucewayne19102005@gmail.com' ? "INSTAGRAM (OPTIONAL)" : "INSTAGRAM (REQUIRED)"}
+          required={formData.email.toLowerCase() !== 'brucewayne19102005@gmail.com'} disabled={otpSent}
+          style={{ width: '100%', padding: '16px', border: '1px solid var(--text-primary)', background: 'transparent', color: 'var(--text-primary)', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}
           value={formData.instaId} onChange={e => setFormData({...formData, instaId: e.target.value})}
         />
 
         <input 
-          type="text" placeholder="Snapchat ID (Optional)" disabled={otpSent}
-          style={{ width: '100%', padding: '14px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', background: 'var(--secondary-bg)', color: 'var(--text-primary)' }}
+          type="text" placeholder="SNAPCHAT (OPTIONAL)"
+          disabled={otpSent}
+          style={{ width: '100%', padding: '16px', border: '1px solid var(--text-primary)', background: 'transparent', color: 'var(--text-primary)', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}
           value={formData.snapId} onChange={e => setFormData({...formData, snapId: e.target.value})}
         />
 
@@ -160,25 +166,28 @@ export default function SignUp() {
 
         {otpSent && (
            <input 
-             type="text" placeholder="Enter OTP" required 
-             style={{ width: '100%', padding: '14px', borderRadius: 'var(--radius-md)', border: '2px solid var(--accent-color)', background: 'var(--secondary-bg)', color: 'var(--text-primary)', marginTop: '10px' }}
+             type="text" placeholder="SECURITY CODE"
+             required 
+             style={{ width: '100%', padding: '16px', border: '2px solid var(--text-primary)', background: 'transparent', color: 'var(--text-primary)', marginTop: '10px', fontSize: '0.9rem', letterSpacing: '0.2em', textTransform: 'uppercase', textAlign: 'center' }}
              value={otp} onChange={e => setOtp(e.target.value)}
            />
         )}
 
         <button type="submit" style={{
-          width: '100%', padding: '14px', borderRadius: 'var(--radius-md)', 
+          width: '100%', padding: '16px', 
           background: 'var(--text-primary)', color: 'var(--primary-bg)', 
-          fontWeight: 'bold', marginTop: '10px'
+          fontWeight: '600', marginTop: '10px', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase'
         }}>
-          {otpSent ? 'Verify & Register' : 'Send OTP'}
+          {otpSent ? 'VERIFY & REGISTER' : 'TRANSMIT'}
         </button>
 
       </form>
       
-      <p style={{ textAlign: 'center', marginTop: '20px', color: 'var(--text-secondary)' }}>
-        Already have an account? <Link href="/login" style={{ color: 'var(--text-primary)', fontWeight: 'bold' }}>Log In</Link>
-      </p>
+      <div style={{ marginTop: 'auto', paddingBottom: '20px', textAlign: 'center' }}>
+        <p style={{ color: 'var(--text-primary)', opacity: 0.6, fontSize: '0.8rem', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+          Returning user? <Link href="/login" style={{ color: 'var(--text-primary)', fontWeight: 'bold' }}>Log In</Link>
+        </p>
+      </div>
     </div>
   );
 }

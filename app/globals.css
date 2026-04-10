@@ -1,24 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
+
 :root {
   --primary-bg: #000000;
-  --secondary-bg: #121212;
+  --secondary-bg: #000000;
   --text-primary: #ffffff;
-  --text-secondary: #a8a8a8;
-  --accent-color: #ff3366; /* Dating/Like accent */
-  --accent-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-  --border-color: #262626;
+  --text-secondary: #ffffff;
+  --accent-color: #ffffff;
+  --border-color: #ffffff;
   --nav-height: 60px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
-  --transition-fast: 0.2s ease;
+  --radius-md: 0px; /* Sharp edges for premium minimal look */
+  --radius-lg: 0px;
+  --transition-fast: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Force strict B&W across all schemes */
 @media (prefers-color-scheme: light) {
   :root {
-    --primary-bg: #fafafa;
+    --primary-bg: #ffffff;
     --secondary-bg: #ffffff;
-    --text-primary: #262626;
-    --text-secondary: #8e8e8e;
-    --border-color: #dbdbdb;
+    --text-primary: #000000;
+    --text-secondary: #000000;
+    --accent-color: #000000;
+    --border-color: #000000;
   }
 }
 
@@ -31,10 +34,12 @@
 body {
   background-color: var(--primary-bg);
   color: var(--text-primary);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  padding-bottom: var(--nav-height); /* Space for bottom nav on mobile */
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  letter-spacing: -0.02em;
+  padding-bottom: var(--nav-height);
   transition: background-color var(--transition-fast), color var(--transition-fast);
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -46,49 +51,42 @@ ul {
   list-style: none;
 }
 
-button {
+button, input {
   background: none;
   border: none;
   cursor: pointer;
   color: inherit;
   font-family: inherit;
-  transition: opacity var(--transition-fast);
+  transition: all var(--transition-fast);
+  outline: none;
 }
 
 button:active {
-  opacity: 0.7;
+  transform: scale(0.98);
 }
 
-/* Glassmorphism utility */
+/* Premium stark outline utility */
 .glass {
-  background: rgba(18, 18, 18, 0.7);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--primary-bg);
+  border-bottom: 1px solid var(--text-primary);
 }
 
-@media (prefers-color-scheme: light) {
-  .glass {
-    background: rgba(255, 255, 255, 0.85);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  }
-}
-
-/* Mobile responsive constraints */
+/* Mobile responsive constraints - stark borders */
 .app-container {
-  max-width: 480px; /* Mobile width constraint for standard Instagram feel */
+  max-width: 480px;
   margin: 0 auto;
   min-height: 100vh;
   position: relative;
   background-color: var(--primary-bg);
-  border-left: 1px solid var(--border-color);
-  border-right: 1px solid var(--border-color);
+  border-left: 1px solid var(--text-primary);
+  border-right: 1px solid var(--text-primary);
 }
 
-/* Gradient text */
+/* Hyper-minimal title class */
 .text-gradient {
-  background: var(--accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--text-primary);
+  letter-spacing: -0.04em;
 }

@@ -17,7 +17,7 @@ export default function BottomNav() {
       <Link href="/" style={{ padding: '10px' }}>
         <Home size={28} />
       </Link>
-      <Link href="/discover" style={{ padding: '10px', color: 'var(--accent-color)' }}>
+      <Link href="/discover" style={{ padding: '10px', color: 'var(--text-primary)' }}>
         <Heart size={28} />
       </Link>
       <Link href="/create" style={{ padding: '10px' }}>

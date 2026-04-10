@@ -62,53 +62,53 @@ export default function AdminDashboard() {
 
   if (error) {
     return (
-      <div style={{ padding: '20px', textAlign: 'center', color: '#ff3366', marginTop: '100px' }}>
-         <ShieldAlert size={64} style={{ margin: '0 auto 20px' }} />
-         <h2>{error}</h2>
-         <Link href="/" style={{ color: '#fff', textDecoration: 'underline', marginTop: '20px', display: 'block' }}>Return Home</Link>
+      <div style={{ padding: '40px', textAlign: 'center', color: 'var(--text-primary)', marginTop: '100px', backgroundColor: 'var(--primary-bg)' }}>
+         <ShieldAlert size={64} style={{ margin: '0 auto 20px', display: 'block' }} strokeWidth={1} />
+         <h2 style={{ letterSpacing: '0.1em', textTransform: 'uppercase', fontSize: '1rem' }}>{error}</h2>
+         <Link href="/" style={{ padding: '15px 30px', border: '1px solid var(--text-primary)', color: 'var(--text-primary)', marginTop: '40px', display: 'inline-block', letterSpacing: '0.1em', textTransform: 'uppercase', fontSize: '0.8rem', fontWeight: 600 }}>Return</Link>
       </div>
     );
   }
 
   return (
-    <div style={{ padding: '20px', minHeight: '100vh', background: '#0a0a0a' }}>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: '20px', borderBottom: '1px solid #333' }}>
+    <div style={{ padding: '40px 20px', minHeight: '100vh', backgroundColor: 'var(--primary-bg)', color: 'var(--text-primary)' }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: '30px', borderBottom: '1px solid var(--text-primary)' }}>
         <div>
-          <h1 style={{ color: '#ff3366', fontSize: '2rem', display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <ShieldAlert /> God Mode
+          <h1 style={{ fontSize: '2rem', display: 'flex', alignItems: 'center', gap: '15px', fontFamily: 'Playfair Display, serif', fontStyle: 'italic', fontWeight: 600 }}>
+            <ShieldAlert strokeWidth={1} /> God Mode
           </h1>
-          <p style={{ color: '#888' }}>Master Dashboard - Ahmedabad Global View</p>
+          <p style={{ opacity: 0.7, marginTop: '5px', fontSize: '0.8rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Master Terminal</p>
         </div>
-        <Link href="/" style={{ padding: '10px 20px', background: '#222', borderRadius: '8px', color: '#fff' }}>Exit</Link>
+        <Link href="/" style={{ border: '1px solid var(--text-primary)', padding: '10px 20px', color: 'var(--text-primary)', fontSize: '0.8rem', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600 }}>Exit</Link>
       </div>
 
-      <div style={{ display: 'flex', gap: '20px', marginTop: '20px' }}>
-        <div style={{ flex: 1, background: '#111', padding: '20px', borderRadius: '12px', border: '1px solid #333' }}>
-           <h3 style={{ color: '#888', display: 'flex', alignItems: 'center', gap: '10px' }}><Users /> Total Users</h3>
-           <div style={{ fontSize: '3rem', fontWeight: 'bold', color: '#fff' }}>{stats.totalUsers}</div>
+      <div style={{ display: 'flex', gap: '20px', marginTop: '40px' }}>
+        <div style={{ flex: 1, border: '1px solid var(--text-primary)', padding: '30px', textAlign: 'center' }}>
+           <h3 style={{ opacity: 0.7, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px', fontSize: '0.8rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}><Users size={16} /> Users</h3>
+           <div style={{ fontSize: '4rem', fontWeight: '800', fontFamily: 'Playfair Display, serif', fontStyle: 'italic' }}>{stats.totalUsers}</div>
         </div>
-        <div style={{ flex: 1, background: '#111', padding: '20px', borderRadius: '12px', border: '1px solid #333' }}>
-           <h3 style={{ color: '#888', display: 'flex', alignItems: 'center', gap: '10px' }}><Heart /> Total Matches</h3>
-           <div style={{ fontSize: '3rem', fontWeight: 'bold', color: '#fff' }}>{stats.totalMatches}</div>
+        <div style={{ flex: 1, border: '1px solid var(--text-primary)', padding: '30px', textAlign: 'center' }}>
+           <h3 style={{ opacity: 0.7, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px', fontSize: '0.8rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}><Heart size={16} /> Matches</h3>
+           <div style={{ fontSize: '4rem', fontWeight: '800', fontFamily: 'Playfair Display, serif', fontStyle: 'italic' }}>{stats.totalMatches}</div>
         </div>
       </div>
 
-      <h2 style={{ color: '#fff', marginTop: '40px', marginBottom: '20px', borderBottom: '1px solid #333', paddingBottom: '10px' }}>Global User Directory (Bypass Privacy)</h2>
-      <div style={{ display: 'grid', gap: '15px' }}>
+      <h2 style={{ marginTop: '60px', marginBottom: '30px', borderBottom: '1px solid var(--text-primary)', paddingBottom: '15px', fontSize: '1rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Global Directory</h2>
+      <div style={{ display: 'grid', gap: '20px' }}>
         {users.map(u => (
-          <div key={u.uid} style={{ background: '#111', padding: '20px', borderRadius: '8px', border: '1px solid #333' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-              <div>
-                 <strong style={{ color: '#fff', fontSize: '1.2rem' }}>{u.username}</strong>
-                 <span style={{ marginLeft: '10px', padding: '3px 8px', background: u.isPrivate ? '#ff3366' : '#33ff88', color: '#000', fontSize: '0.7rem', borderRadius: '10px', fontWeight: 'bold' }}>
+          <div key={u.uid} style={{ border: '1px solid var(--text-primary)', padding: '25px', display: 'flex', flexDirection: 'column', gap: '15px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                 <strong style={{ fontSize: '1.2rem', letterSpacing: '0.05em', textTransform: 'uppercase' }}>{u.username}</strong>
+                 <span style={{ border: '1px solid var(--text-primary)', padding: '4px 10px', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
                    {u.isPrivate ? 'PRIVATE' : 'PUBLIC'}
                  </span>
-                 <p style={{ color: '#888', marginTop: '5px' }}>Phone: {u.phone} | Email: {u.email}</p>
-              </div>
             </div>
-            <div style={{ marginTop: '15px', background: '#000', padding: '10px', borderRadius: '6px', fontSize: '0.9rem' }}>
-              <p style={{ color: '#ccc' }}><strong>Instagram ID:</strong> {u.instaId}</p>
-              <p style={{ color: '#ccc' }}><strong>Snapchat ID:</strong> {u.snapId || 'N/A'}</p>
+            <div style={{ fontSize: '0.85rem', opacity: 0.8, letterSpacing: '0.05em' }}>
+               <p>TEL: {u.phone} &nbsp; // &nbsp; EMAIL: {u.email}</p>
+            </div>
+            <div style={{ borderTop: '1px solid var(--text-primary)', paddingTop: '15px', fontSize: '0.85rem', letterSpacing: '0.05em' }}>
+              <p>INSTAGRAM: <span style={{ fontWeight: 600 }}>{u.instaId}</span></p>
+              <p style={{ marginTop: '5px' }}>SNAPCHAT: <span style={{ fontWeight: 600 }}>{u.snapId || 'NULL'}</span></p>
             </div>
           </div>
         ))}

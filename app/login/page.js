@@ -95,32 +95,32 @@ export default function Login() {
   };
 
   return (
-    <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', minHeight: '100vh', justifyContent: 'center' }}>
-      <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-        <h1 className="text-gradient" style={{ fontSize: '2.5rem', fontWeight: 'bold' }}>Gchat</h1>
-        <p style={{ color: 'var(--text-secondary)', marginTop: '5px' }}>Ahmedabad Social & Dating</p>
+    <div style={{ padding: '40px', display: 'flex', flexDirection: 'column', minHeight: '100vh', justifyContent: 'center', backgroundColor: 'var(--primary-bg)' }}>
+      <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+        <h1 className="text-gradient" style={{ fontSize: '3rem', letterSpacing: '0.05em' }}>Gchat.</h1>
+        <p style={{ color: 'var(--text-primary)', marginTop: '10px', fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', opacity: 0.7 }}>Secure Terminal</p>
       </div>
 
-      {error && <div style={{ padding: '10px', background: 'rgba(255,50,50,0.1)', color: '#ff3366', borderRadius: 'var(--radius-md)', marginBottom: '15px', border: '1px solid #ff3366', fontSize: '0.9rem' }}>{error}</div>}
+      {error && <div style={{ padding: '15px', color: 'var(--text-primary)', border: '1px solid var(--text-primary)', marginBottom: '20px', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Error: {error}</div>}
 
       {mode === 'login' && (
-        <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+        <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <input 
-            type="text" placeholder="Username, Phone, or Email" required disabled={loading}
-            style={{ width: '100%', padding: '14px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', background: 'var(--secondary-bg)', color: 'var(--text-primary)' }}
+            type="text" placeholder="IDENTIFIER" required disabled={loading}
+            style={{ width: '100%', padding: '16px', border: '1px solid var(--text-primary)', background: 'transparent', color: 'var(--text-primary)', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}
             value={identifier} onChange={e => setIdentifier(e.target.value)}
           />
           <input 
-            type="password" placeholder="Password" required disabled={loading}
-            style={{ width: '100%', padding: '14px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', background: 'var(--secondary-bg)', color: 'var(--text-primary)' }}
+            type="password" placeholder="SECRET" required disabled={loading}
+            style={{ width: '100%', padding: '16px', border: '1px solid var(--text-primary)', background: 'transparent', color: 'var(--text-primary)', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}
             value={password} onChange={e => setPassword(e.target.value)}
           />
-          <button type="submit" disabled={loading} style={{ width: '100%', padding: '14px', borderRadius: 'var(--radius-md)', background: 'var(--text-primary)', color: 'var(--primary-bg)', fontWeight: 'bold', marginTop: '10px' }}>
-            {loading ? 'Logging in...' : 'Log In'}
+          <button type="submit" disabled={loading} style={{ width: '100%', padding: '16px', background: 'var(--text-primary)', color: 'var(--primary-bg)', fontWeight: '600', marginTop: '10px', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+            {loading ? 'AUTHENTICATING...' : 'AUTHORIZE'}
           </button>
           
-          <button type="button" onClick={() => setMode('forgot')} style={{ color: 'var(--text-primary)', alignSelf: 'flex-end', fontSize: '0.9rem' }}>
-            Forgot Password?
+          <button type="button" onClick={() => setMode('forgot')} style={{ color: 'var(--text-primary)', textAlign: 'center', fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', opacity: 0.6, marginTop: '20px' }}>
+            Recover Access
           </button>
         </form>
       )}

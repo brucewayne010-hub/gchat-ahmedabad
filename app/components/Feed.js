@@ -37,37 +37,37 @@ export default function Feed() {
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', paddingBottom: '20px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '40px', paddingBottom: '20px' }}>
       {posts.map(post => (
-        <article key={post.id} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        <article key={post.id} style={{ display: 'flex', flexDirection: 'column', gap: '15px', borderBottom: '1px solid var(--text-primary)', paddingBottom: '20px' }}>
           {/* Header */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '0 15px' }}>
-            <div style={{ width: '35px', height: '35px', borderRadius: '50%', background: 'linear-gradient(45deg, #ff3366, #ff9933)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 'bold' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '0 20px' }}>
+            <div style={{ width: '40px', height: '40px', background: 'var(--text-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary-bg)', fontWeight: '800', fontSize: '1.2rem', fontFamily: 'Playfair Display, serif', fontStyle: 'italic' }}>
               {post.username ? post.username[0].toUpperCase() : 'U'}
             </div>
-            <div style={{ fontWeight: '600', fontSize: '0.95rem' }}>{post.username}</div>
+            <div style={{ fontWeight: '600', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>{post.username}</div>
           </div>
           
           {/* Image */}
-          <div style={{ width: '100%', aspectRatio: '4/5', background: 'var(--secondary-bg)', overflow: 'hidden' }}>
+          <div style={{ width: '100%', aspectRatio: '4/5', background: 'var(--primary-bg)', overflow: 'hidden', borderTop: '1px solid var(--text-primary)', borderBottom: '1px solid var(--text-primary)' }}>
              {post.imageUrl ? (
-                <img src={post.imageUrl} alt="Post" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src={post.imageUrl} alt="Post" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(100%) contrast(1.1)' }} />
              ) : (
-                <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-secondary)' }}>Image Unavailable</div>
+                <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-primary)', letterSpacing: '0.1em', fontSize: '0.8rem', textTransform: 'uppercase' }}>NO IMAGE</div>
              )}
           </div>
 
           {/* Actions */}
-          <div style={{ display: 'flex', gap: '15px', padding: '0 15px', color: 'var(--text-primary)' }}>
-            <button style={{ padding: 0 }}><Heart size={26} /></button>
-            <button style={{ padding: 0 }}><MessageCircle size={26} /></button>
-            <button style={{ padding: 0 }}><Send size={26} /></button>
+          <div style={{ display: 'flex', gap: '20px', padding: '0 20px', color: 'var(--text-primary)' }}>
+            <button style={{ padding: 0 }}><Heart size={28} strokeWidth={1.5} /></button>
+            <button style={{ padding: 0 }}><MessageCircle size={28} strokeWidth={1.5} /></button>
+            <button style={{ padding: 0 }}><Send size={28} strokeWidth={1.5} /></button>
           </div>
 
           {/* Caption */}
-          <div style={{ padding: '0 15px', fontSize: '0.95rem' }}>
-            <strong style={{ fontWeight: '600', marginRight: '8px' }}>{post.username}</strong>
-            <span style={{ color: 'var(--text-secondary)' }}>{post.caption}</span>
+          <div style={{ padding: '0 20px', fontSize: '0.85rem', lineHeight: '1.6' }}>
+            <strong style={{ fontWeight: '800', marginRight: '8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{post.username}</strong>
+            <span style={{ color: 'var(--text-primary)', opacity: 0.9 }}>{post.caption}</span>
           </div>
         </article>
       ))}
